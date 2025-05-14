@@ -1,9 +1,15 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
+import { ContactForm } from '@/components/contact-form';
 import { Code, Compass, Cpu, Layers, Lightbulb, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LogoParticles from '@/components/logo-particles';
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Grid container with max-width and consistent horizontal margins */}
@@ -115,12 +121,16 @@ export default function Home() {
                 experiences.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-sm px-8 py-6 text-lg">
+                <Button
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-sm px-8 py-6 text-lg"
+                  onClick={() => setOpen(true)}
+                >
                   Start a project
                 </Button>
                 <Button
                   variant="outline"
                   className="border-border text-foreground hover:bg-secondary rounded-sm px-8 py-6 text-lg"
+                  onClick={() => setOpen(true)}
                 >
                   Schedule a call
                 </Button>
@@ -143,6 +153,7 @@ export default function Home() {
           </div>
         </footer>
       </div>
+      <ContactForm open={open} onOpenChange={setOpen} />
     </div>
   );
 }
