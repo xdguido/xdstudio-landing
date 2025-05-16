@@ -1,7 +1,6 @@
 'use client';
 
-import { Marquee, MarqueeItem } from './marquee';
-
+import { Marquee } from './marquee';
 import { Button } from './ui/button';
 
 const contactMessages = [
@@ -57,30 +56,28 @@ interface ContactMarqueeProps {
 export function ContactMarquee({ onMessageSelect }: ContactMarqueeProps) {
   return (
     <>
-      <Marquee className="py-4" pauseOnHover={false}>
+      <Marquee className="py-4" pauseOnHover={true}>
         {contactMessages.map((item) => (
-          <MarqueeItem key={item.id} className="mx-4">
-            <Button
-              variant="outline"
-              className="rounded-full hover:text-primary hover:bg-primary/20 border-border hover:border-primary/40"
-              onClick={() => onMessageSelect(item.message)}
-            >
-              {item.text}
-            </Button>
-          </MarqueeItem>
+          <Button
+            key={item.id}
+            variant="outline"
+            className="rounded-full hover:text-primary hover:bg-primary/20 border-border hover:border-primary/40"
+            onClick={() => onMessageSelect(item.message)}
+          >
+            {item.text}
+          </Button>
         ))}
       </Marquee>
-      <Marquee className="py-4" direction="right" pauseOnHover={false}>
+      <Marquee className="py-4" reverse pauseOnHover={true}>
         {contactMessages2.map((item) => (
-          <MarqueeItem key={item.id} className="mx-4">
-            <Button
-              variant="outline"
-              className="rounded-full hover:text-primary hover:bg-primary/20 border-border hover:border-primary/40"
-              onClick={() => onMessageSelect(item.message)}
-            >
-              {item.text}
-            </Button>
-          </MarqueeItem>
+          <Button
+            key={item.id}
+            variant="outline"
+            className="rounded-full hover:text-primary hover:bg-primary/20 border-border hover:border-primary/40"
+            onClick={() => onMessageSelect(item.message)}
+          >
+            {item.text}
+          </Button>
         ))}
       </Marquee>
     </>
