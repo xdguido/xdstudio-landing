@@ -2,12 +2,15 @@
 
 import { ContactForm } from '@/components/contact-form';
 import LogoParticles from '@/components/logo-particles';
+import { ContactMarquee } from '@/components/message-marquee';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState('');
 
   return (
     <div className="flex justify-center min-h-screen bg-background text-foreground">
@@ -35,7 +38,7 @@ export default function Home() {
           <section className="grid grid-cols-12 gap-4 pt-16 pb-24 px-4 sm:px-6 lg:px-8">
             <div className="col-span-12 xl:col-span-7 flex flex-col items-center xl:items-end justify-center text-center xl:text-right">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
-                Que quieres <br />{' '}
+                Que queres <br />{' '}
                 <span className="text-primary">construir</span> hoy?
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mb-8">
@@ -43,10 +46,13 @@ export default function Home() {
                 soluciones personalizadas que se adaptan a tus necesidades.
               </p>
               <Button
+                asChild
                 size={'lg'}
-                className="hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 font-medium rounded-sm bg-zinc-50/80 text-lg"
+                className="hover:bg-primary/90 transition-colors duration-200 ease-in-out hover:text-primary-foreground text-zinc-950 font-medium rounded-sm bg-zinc-50/80 text-lg"
               >
-                Comenzar <ArrowRight className="ml-1 h-5 w-5" />
+                <Link className="flex items-center" href="#contact">
+                  Comenzar <ArrowRight className="ml-1 h-5 w-5" />
+                </Link>
               </Button>
             </div>
             <div className="hidden xl:block col-span-5 -mt-6">
@@ -59,14 +65,14 @@ export default function Home() {
             id="services"
             className="grid grid-cols-12 border-t border-b gap-4 py-24 px-4 sm:px-6 lg:px-8"
           >
-            <div className="col-span-12 md:col-span-4 p-8 md:text-center">
+            <div className="col-span-12 lg:col-span-4 p-8 md:text-center">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
                 Nuestros Servicios
               </h2>
             </div>
 
             {/* Service 1 */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <div className="col-span-12 lg:col-span-4">
               <div className=" p-8 rounded-sm h-full">
                 <h3 className="text-xl font-bold mb-2">Aplicaciones</h3>
                 <p className="text-muted-foreground">
@@ -77,23 +83,21 @@ export default function Home() {
             </div>
 
             {/* Service 2 */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <div className="col-span-12 lg:col-span-4">
               <div className=" p-8 rounded-sm h-full">
                 <h3 className="text-xl font-bold mb-2">Sitios web</h3>
                 <p className="text-muted-foreground">
-                  Desarrollo de sitios web modernos y responsivos para tu
-                  negocio.
+                  Desarrollo de sitios web modernos y responsivos.
                 </p>
               </div>
             </div>
 
             {/* Service 3 */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-4 lg:col-start-5">
+            <div className="col-span-12 lg:col-span-4 lg:col-start-5">
               <div className=" p-8 rounded-sm h-full">
                 <h3 className="text-xl font-bold mb-2">Automatización</h3>
                 <p className="text-muted-foreground">
-                  Automatiza tareas repetitivas y mejora la eficiencia de tu
-                  equipo.
+                  Automatiza tareas repetitivas y mejora la atención al público.
                 </p>
               </div>
             </div>
@@ -126,7 +130,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size={'lg'}
-                  className="bg-zinc-50/80 hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 rounded-sm text-lg"
+                  className="bg-zinc-50/80 transition-colors duration-200 ease-in-out hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 rounded-sm text-lg"
                   onClick={() => setOpen(true)}
                 >
                   Comenzar
@@ -140,6 +144,14 @@ export default function Home() {
                   Agendar reunion
                 </Button>
               </div>
+            </div>
+            <div className="w-full mt-12 col-span-12">
+              <ContactMarquee
+                onMessageSelect={(message) => {
+                  setMessage(message);
+                  setOpen(true);
+                }}
+              />
             </div>
           </section>
         </main>
@@ -158,7 +170,7 @@ export default function Home() {
           </div>
         </footer>
       </div>
-      <ContactForm open={open} onOpenChange={setOpen} />
+      <ContactForm open={open} onOpenChange={setOpen} message={message} />
     </div>
   );
 }
