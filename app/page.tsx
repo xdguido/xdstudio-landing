@@ -44,7 +44,7 @@ export default function Home() {
               </p>
               <Button
                 size={'lg'}
-                className="hover:bg-primary/90 text-zinc-950 font-medium rounded-sm bg-zinc-50/80 text-lg"
+                className="hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 font-medium rounded-sm bg-zinc-50/80 text-lg"
               >
                 Comenzar <ArrowRight className="ml-1 h-5 w-5" />
               </Button>
@@ -126,7 +126,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size={'lg'}
-                  className="bg-zinc-50/80 hover:bg-primary/90 text-zinc-950 rounded-sm text-lg"
+                  className="bg-zinc-50/80 hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 rounded-sm text-lg"
                   onClick={() => setOpen(true)}
                 >
                   Comenzar
