@@ -16,7 +16,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ContactFormData, contactFormSchema } from './contact.schema';
-import { toast } from './ui/use-toast';
+import { toast } from 'sonner';
 import { Loader } from 'lucide-react';
 
 export function ContactForm({
@@ -51,19 +51,13 @@ export function ContactForm({
 
       if (!response.ok) throw new Error('Failed to send message');
 
-      toast({
-        title: 'Mensaje enviado',
-      });
-
       form.reset();
       onOpenChange(false);
     } catch (error) {
-      toast({
-        title: 'No se pudo enviar el mensaje. Por favor intente nuevamente.',
-        variant: 'destructive',
-      });
+      toast('No se pudo enviar el mensaje. Por favor intente nuevamente.');
     } finally {
       setIsLoading(false);
+      toast('Mensaje enviado');
     }
   };
 
