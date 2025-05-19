@@ -1,4 +1,5 @@
 import '@/app/globals.css';
+import { Toaster } from '@/components/ui/toaster';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -11,9 +12,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'xd.studio | Desarrollo de Software',
+  title: 'XD.STUDIO | Desarrollo de Software',
   description:
-    'xd.studio es una agencia de desarrollo de software a medida, especializada en crear soluciones innovadoras y personalizadas para empresas y startups.',
+    'XD.STUDIO es una agencia de desarrollo de software a medida, especializada en crear soluciones innovadoras y personalizadas para empresas y startups.',
 };
 
 export default function RootLayout({
@@ -23,7 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${inter.className} font-sans`}>{children}</body>
+      <body className={`${inter.className} font-sans`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
