@@ -13,10 +13,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ContactFormData, contactFormSchema } from './contact.schema';
 import { toast } from './ui/use-toast';
+import { Loader } from 'lucide-react';
 
 export function ContactForm({
   open,
@@ -27,6 +28,8 @@ export function ContactForm({
   onOpenChange: (open: boolean) => void;
   message?: string;
 }) {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -38,6 +41,7 @@ export function ContactForm({
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    setIsLoading(true);
     try {
       const response = await fetch('/api/send', {
         method: 'POST',
@@ -58,6 +62,8 @@ export function ContactForm({
         title: 'No se pudo enviar el mensaje. Por favor intente nuevamente.',
         variant: 'destructive',
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -153,8 +159,16 @@ export function ContactForm({
                   <Button
                     type="submit"
                     className="w-full bg-primary text-primary-foreground"
+                    disabled={isLoading}
                   >
-                    Enviar Mensaje
+                    {isLoading ? (
+                      <>
+                        <span className="mr-2">Enviando</span>
+                        <Loader className="animate-spin h-4 w-4" />
+                      </>
+                    ) : (
+                      'Enviar Mensaje'
+                    )}
                   </Button>
                 </div>
               </form>
