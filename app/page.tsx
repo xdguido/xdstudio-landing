@@ -42,8 +42,8 @@ export default function Home() {
                 <span className="text-primary">construir</span> hoy?
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mb-8">
-                Llevamos el desarrollo de software a otro nivel. Creamos
-                soluciones personalizadas que se adaptan a tus necesidades.
+                Creamos soluciones personalizadas que se adaptan a tus
+                necesidades.
               </p>
               <Button
                 asChild
@@ -125,7 +125,7 @@ export default function Home() {
               </h2>
               <p className="text-xl text-muted-foreground mb-12">
                 Colaboremos juntos para crear algo increíble. Estamos aquí para
-                ayudarte a dar un paso adelante en tu proyecto.
+                solucionar tus problemas y ayudarte a alcanzar tus metas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
