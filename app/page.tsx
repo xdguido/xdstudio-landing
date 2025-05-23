@@ -36,7 +36,7 @@ export default function Home() {
         <main>
           {/* Hero Section */}
           <section className="grid grid-cols-12 gap-4 pt-16 pb-24 px-4 sm:px-6 lg:px-8">
-            <div className="col-span-12 xl:col-span-7 flex flex-col items-center xl:items-end justify-center text-center xl:text-right">
+            <div className="col-span-12 xl:col-span-7 flex flex-col items-center xl:items-start justify-center text-center xl:text-left">
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
                 Que queres <br />{' '}
                 <span className="text-primary">construir</span> hoy?
