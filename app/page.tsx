@@ -178,10 +178,8 @@ export default function Home() {
                   <span className="text-primary">construir</span> hoy?
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mb-8">
-                  Desde Neuquén Capital, creamos soluciones de software
-                  personalizadas, aplicaciones web y herramientas internas que
-                  se adaptan perfectamente a las necesidades de tu empresa en la
-                  Patagonia.
+                  Creamos soluciones personalizadas que se adaptan a tus
+                  necesidades.
                 </p>
                 <Button
                   asChild
@@ -216,10 +214,6 @@ export default function Home() {
                 >
                   Nuestros Servicios
                 </h2>
-                <p className="text-lg text-muted-foreground mt-4">
-                  Soluciones digitales especializadas para empresas en Neuquén y
-                  la región
-                </p>
               </div>
 
               {/* Service 1 */}
@@ -289,8 +283,6 @@ export default function Home() {
                   Da un paso adelante con tu proyecto
                 </h2>
                 <p className="text-xl text-muted-foreground mb-12">
-                  Desde Neuquén Capital, colaboremos juntos para crear
-                  soluciones digitales que impulsen tu negocio en la región.
                   Estamos aquí para resolver tus desafíos tecnológicos y
                   ayudarte a alcanzar tus objetivos empresariales.
                 </p>
@@ -330,15 +322,22 @@ export default function Home() {
             className="grid grid-cols-12 gap-4 border-t border-border py-12 px-4 sm:px-6 lg:px-8"
             role="contentinfo"
           >
-            <div className="col-span-6 flex items-center">
-              <div className="flex items-center gap-2">
-                <span className="font-bold tracking-tight">XD.STUDIO</span>
-                <span className="text-muted-foreground text-sm ml-2">
-                  Desarrollo de Software a Medida
-                </span>
+            <div className="col-span-12 lg:col-span-8">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="font-bold tracking-tight text-xl">
+                    XD.STUDIO
+                  </span>
+                  <span className="text-muted-foreground text-sm">
+                    Desarrollo de Software a Medida
+                  </span>
+                </div>
+                <div className="text-muted-foreground text-xs">
+                  📍 Neuquén Capital, Argentina
+                </div>
               </div>
             </div>
-            <div className="col-span-6 flex justify-end items-center">
+            <div className="col-span-12 lg:col-span-4 flex justify-start lg:justify-end items-end">
               <div className="text-muted-foreground text-sm">
                 © {new Date().getFullYear()} XD.STUDIO. Todos los derechos
                 reservados.
