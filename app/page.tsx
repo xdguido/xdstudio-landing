@@ -13,164 +13,341 @@ export default function Home() {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="flex justify-center min-h-screen bg-background text-foreground">
-      {/* Grid container with max-width and consistent horizontal margins */}
-      <div className="max-w-7xl border border-border mx-4">
-        {/* Header */}
-        <header className="grid grid-cols-12 gap-4 py-6 px-4 sm:px-6 lg:px-8">
-          <div className="col-span-6 flex items-center">
-            <div className="flex items-center gap-2">
-              <span className="font-bold tracking-tight">XD.STUDIO</span>
+    <>
+      {/* JSON-LD Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'XD.STUDIO',
+              description:
+                'Desarrollo de software a medida, aplicaciones web y herramientas internas para empresas locales',
+              url: 'https://www.xdstudiogg.com',
+              logo: 'https://www.xdstudiogg.com/logo.png',
+              // sameAs: [
+              //   'https://linkedin.com/company/xdstudio',
+              //   'https://github.com/xdstudio',
+              // ],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                contactType: 'customer service',
+                availableLanguage: ['Spanish', 'English'],
+              },
+              address: {
+                '@type': 'PostalAddress',
+                addressCountry: 'AR',
+              },
+              areaServed: {
+                '@type': 'Country',
+                name: 'Argentina',
+              },
+              knowsAbout: [
+                'Desarrollo de Software',
+                'Aplicaciones Web',
+                'Herramientas Internas',
+                'Automatización',
+                'Desarrollo a Medida',
+              ],
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'XD.STUDIO',
+              description:
+                'Especialistas en desarrollo de software a medida y herramientas internas para empresas locales',
+              url: 'https://www.xdstudiogg.com',
+              telephone: '+54-299-XXXX-XXXX',
+              email: 'contacto@xdstudio.dev',
+              address: {
+                '@type': 'PostalAddress',
+                addressCountry: 'AR',
+                addressLocality: 'Neuquén Capital',
+                addressRegion: 'Neuquén',
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: -38.9516,
+                longitude: -68.0591,
+              },
+              openingHours: 'Mo-Fr 09:00-18:00',
+              priceRange: '$$',
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '5',
+                reviewCount: '1',
+              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Service',
+              serviceType: 'Desarrollo de Software',
+              provider: {
+                '@type': 'Organization',
+                name: 'XD.STUDIO',
+              },
+              areaServed: [
+                {
+                  '@type': 'State',
+                  name: 'Neuquén',
+                },
+                {
+                  '@type': 'Country',
+                  name: 'Argentina',
+                },
+              ],
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Servicios de Desarrollo',
+                itemListElement: [
+                  {
+                    '@type': 'OfferCatalog',
+                    name: 'Desarrollo de Aplicaciones',
+                    description:
+                      'Soluciones de software a medida para optimizar procesos operativos',
+                  },
+                  {
+                    '@type': 'OfferCatalog',
+                    name: 'Desarrollo de Sitios Web',
+                    description:
+                      'Desarrollo de sitios web modernos y responsivos',
+                  },
+                  {
+                    '@type': 'OfferCatalog',
+                    name: 'Automatización',
+                    description:
+                      'Automatización de tareas repetitivas y mejora de atención al cliente',
+                  },
+                  {
+                    '@type': 'OfferCatalog',
+                    name: 'Herramientas Personalizadas',
+                    description:
+                      'Desarrollo de herramientas personalizadas para mejorar productividad',
+                  },
+                ],
+              },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'XD.STUDIO',
+              url: 'https://www.xdstudiogg.com',
+              description:
+                'Desarrollo de software a medida y herramientas internas para empresas locales',
+              inLanguage: 'es-AR',
+              isAccessibleForFree: true,
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://www.xdstudiogg.com/?q={search_term_string}',
+                'query-input': 'required name=search_term_string',
+              },
+            },
+          ]),
+        }}
+      />
+
+      <div className="flex justify-center min-h-screen bg-background text-foreground">
+        {/* Grid container with max-width and consistent horizontal margins */}
+        <div className="max-w-7xl border border-border mx-4">
+          {/* Header */}
+          <header
+            className="grid grid-cols-12 gap-4 py-6 px-4 sm:px-6 lg:px-8"
+            role="banner"
+          >
+            <div className="col-span-6 flex items-center">
+              <div className="flex items-center gap-2">
+                <h1 className="font-bold tracking-tight text-xl">XD.STUDIO</h1>
+              </div>
             </div>
-          </div>
-          {/* <nav className="col-span-6 md:col-span-6 hidden md:flex items-center justify-end gap-8">
-            <Link
-              href="#contact"
-              className="text-sm uppercase tracking-wide hover:text-primary transition-colors"
+          </header>
+
+          <main role="main">
+            {/* Hero Section */}
+            <section
+              className="grid grid-cols-12 gap-4 pt-16 pb-24 px-4 sm:px-6 lg:px-8"
+              aria-labelledby="hero-heading"
             >
-              Contacto
-            </Link>
-          </nav> */}
-        </header>
-
-        <main>
-          {/* Hero Section */}
-          <section className="grid grid-cols-12 gap-4 pt-16 pb-24 px-4 sm:px-6 lg:px-8">
-            <div className="col-span-12 xl:col-span-7 flex flex-col items-center xl:items-start justify-center text-center xl:text-left">
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
-                Que queres <br />{' '}
-                <span className="text-primary">construir</span> hoy?
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mb-8">
-                Creamos soluciones personalizadas que se adaptan a tus
-                necesidades.
-              </p>
-              <Button
-                asChild
-                size={'lg'}
-                className="hover:bg-primary/90 transition-colors duration-200 ease-in-out hover:text-primary-foreground text-zinc-950 font-medium rounded-sm bg-zinc-50/80 text-lg"
+              <div className="col-span-12 xl:col-span-7 flex flex-col items-center xl:items-start justify-center text-center xl:text-left">
+                <h2
+                  id="hero-heading"
+                  className="text-5xl md:text-7xl font-bold tracking-tighter mb-6"
+                >
+                  ¿Qué querés <br />{' '}
+                  <span className="text-primary">construir</span> hoy?
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mb-8">
+                  Desde Neuquén Capital, creamos soluciones de software
+                  personalizadas, aplicaciones web y herramientas internas que
+                  se adaptan perfectamente a las necesidades de tu empresa en la
+                  Patagonia.
+                </p>
+                <Button
+                  asChild
+                  size={'lg'}
+                  className="hover:bg-primary/90 transition-colors duration-200 ease-in-out hover:text-primary-foreground text-zinc-950 font-medium rounded-sm bg-zinc-50/80 text-lg"
+                  aria-label="Comenzar proyecto de desarrollo de software"
+                >
+                  <Link className="flex items-center" href="#contact">
+                    Comenzar{' '}
+                    <ArrowRight className="ml-1 h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </Button>
+              </div>
+              <div
+                className="hidden xl:block col-span-5 -mt-6"
+                aria-hidden="true"
               >
-                <Link className="flex items-center" href="#contact">
-                  Comenzar <ArrowRight className="ml-1 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-            <div className="hidden xl:block col-span-5 -mt-6">
-              <LogoParticles />
-            </div>
-          </section>
-
-          {/* Services Section */}
-          <section
-            id="services"
-            className="grid grid-cols-12 border-t border-b gap-4 py-24 px-4 sm:px-6 lg:px-8"
-          >
-            <div className="col-span-12 lg:col-span-4 p-8 md:text-center">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
-                Nuestros Servicios
-              </h2>
-            </div>
-
-            {/* Service 1 */}
-            <div className="col-span-12 lg:col-span-4">
-              <div className=" p-8 rounded-sm h-full">
-                <h3 className="text-xl font-bold mb-2">Aplicaciones</h3>
-                <p className="text-muted-foreground">
-                  Soluciones de software a medida para optimizar tus procesos
-                  operativos.
-                </p>
+                <LogoParticles />
               </div>
-            </div>
+            </section>
 
-            {/* Service 2 */}
-            <div className="col-span-12 lg:col-span-4">
-              <div className=" p-8 rounded-sm h-full">
-                <h3 className="text-xl font-bold mb-2">Sitios web</h3>
-                <p className="text-muted-foreground">
-                  Desarrollo de sitios web modernos y responsivos.
-                </p>
-              </div>
-            </div>
-
-            {/* Service 3 */}
-            <div className="col-span-12 lg:col-span-4 lg:col-start-5">
-              <div className=" p-8 rounded-sm h-full">
-                <h3 className="text-xl font-bold mb-2">Automatización</h3>
-                <p className="text-muted-foreground">
-                  Automatiza tareas repetitivas y mejora la atención al público.
-                </p>
-              </div>
-            </div>
-
-            {/* Service 4 */}
-            <div className="col-span-12 md:col-span-6 lg:col-span-4 lg:col-start-9">
-              <div className=" p-8 rounded-sm h-full">
-                <h3 className="text-xl font-bold mb-2">Herramientas</h3>
-                <p className="text-muted-foreground">
-                  Desarrolla herramientas personalizadas para mejorar la
-                  productividad de tu equipo.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Contact Section */}
-          <section
-            id="contact"
-            className="grid grid-cols-12 gap-4 py-24 px-4 sm:px-6 lg:px-8"
-          >
-            <div className="col-span-12 lg:col-start-3 lg:col-span-8 text-center">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-6">
-                Da un paso adelante con tu proyecto
-              </h2>
-              <p className="text-xl text-muted-foreground mb-12">
-                Colaboremos juntos para crear algo increíble. Estamos aquí para
-                solucionar tus problemas y ayudarte a alcanzar tus metas.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size={'lg'}
-                  className="bg-zinc-50/80 transition-colors duration-200 ease-in-out hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 rounded-sm text-lg"
-                  onClick={() => setOpen(true)}
+            {/* Services Section */}
+            <section
+              id="services"
+              className="grid grid-cols-12 border-t border-b gap-4 py-24 px-4 sm:px-6 lg:px-8"
+              aria-labelledby="services-heading"
+            >
+              <div className="col-span-12 lg:col-span-4 p-8 md:text-center">
+                <h2
+                  id="services-heading"
+                  className="text-3xl md:text-4xl font-bold tracking-tighter"
                 >
-                  Comenzar
-                </Button>
-                <Button
-                  variant="outline"
-                  size={'lg'}
-                  className="border-border text-foreground hover:bg-secondary rounded-sm text-lg"
-                  onClick={() => setOpen(true)}
+                  Nuestros Servicios
+                </h2>
+                <p className="text-lg text-muted-foreground mt-4">
+                  Soluciones digitales especializadas para empresas en Neuquén y
+                  la región
+                </p>
+              </div>
+
+              {/* Service 1 */}
+              <article className="col-span-12 lg:col-span-4">
+                <div className="p-8 rounded-sm h-full">
+                  <h3 className="text-xl font-bold mb-2">
+                    Desarrollo de Aplicaciones
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Soluciones de software a medida para optimizar tus procesos
+                    operativos y mejorar la eficiencia de tu equipo.
+                  </p>
+                </div>
+              </article>
+
+              {/* Service 2 */}
+              <article className="col-span-12 lg:col-span-4">
+                <div className="p-8 rounded-sm h-full">
+                  <h3 className="text-xl font-bold mb-2">
+                    Sitios Web Modernos
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Desarrollo de sitios web responsivos y optimizados para
+                    atraer más clientes a tu negocio local.
+                  </p>
+                </div>
+              </article>
+
+              {/* Service 3 */}
+              <article className="col-span-12 lg:col-span-4 lg:col-start-5">
+                <div className="p-8 rounded-sm h-full">
+                  <h3 className="text-xl font-bold mb-2">
+                    Automatización de Procesos
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Automatiza tareas repetitivas y mejora la atención al
+                    cliente con soluciones inteligentes.
+                  </p>
+                </div>
+              </article>
+
+              {/* Service 4 */}
+              <article className="col-span-12 md:col-span-6 lg:col-span-4 lg:col-start-9">
+                <div className="p-8 rounded-sm h-full">
+                  <h3 className="text-xl font-bold mb-2">
+                    Herramientas Internas
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Desarrollamos herramientas personalizadas para mejorar la
+                    productividad y eficiencia de tu equipo de trabajo.
+                  </p>
+                </div>
+              </article>
+            </section>
+
+            {/* Contact Section */}
+            <section
+              id="contact"
+              className="grid grid-cols-12 gap-4 py-24 px-4 sm:px-6 lg:px-8"
+              aria-labelledby="contact-heading"
+            >
+              <div className="col-span-12 lg:col-start-3 lg:col-span-8 text-center">
+                <h2
+                  id="contact-heading"
+                  className="text-3xl md:text-5xl font-bold tracking-tighter mb-6"
                 >
-                  Agendar reunion
-                </Button>
+                  Da un paso adelante con tu proyecto
+                </h2>
+                <p className="text-xl text-muted-foreground mb-12">
+                  Desde Neuquén Capital, colaboremos juntos para crear
+                  soluciones digitales que impulsen tu negocio en la región.
+                  Estamos aquí para resolver tus desafíos tecnológicos y
+                  ayudarte a alcanzar tus objetivos empresariales.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    size={'lg'}
+                    className="bg-zinc-50/80 transition-colors duration-200 ease-in-out hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 rounded-sm text-lg"
+                    onClick={() => setOpen(true)}
+                    aria-label="Iniciar conversación sobre tu proyecto"
+                  >
+                    Comenzar
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size={'lg'}
+                    className="border-border text-foreground hover:bg-secondary rounded-sm text-lg"
+                    onClick={() => setOpen(true)}
+                    aria-label="Programar reunión de consulta"
+                  >
+                    Agendar reunión
+                  </Button>
+                </div>
+              </div>
+              <div className="w-full mt-12 col-span-12">
+                <ContactMarquee
+                  onMessageSelect={(message) => {
+                    setMessage(message);
+                    setOpen(true);
+                  }}
+                />
+              </div>
+            </section>
+          </main>
+
+          {/* Footer */}
+          <footer
+            className="grid grid-cols-12 gap-4 border-t border-border py-12 px-4 sm:px-6 lg:px-8"
+            role="contentinfo"
+          >
+            <div className="col-span-6 flex items-center">
+              <div className="flex items-center gap-2">
+                <span className="font-bold tracking-tight">XD.STUDIO</span>
+                <span className="text-muted-foreground text-sm ml-2">
+                  Desarrollo de Software a Medida
+                </span>
               </div>
             </div>
-            <div className="w-full mt-12 col-span-12">
-              <ContactMarquee
-                onMessageSelect={(message) => {
-                  setMessage(message);
-                  setOpen(true);
-                }}
-              />
+            <div className="col-span-6 flex justify-end items-center">
+              <div className="text-muted-foreground text-sm">
+                © {new Date().getFullYear()} XD.STUDIO. Todos los derechos
+                reservados.
+              </div>
             </div>
-          </section>
-        </main>
-
-        {/* Footer */}
-        <footer className="grid grid-cols-12 gap-4 border-t border-border py-12 px-4 sm:px-6 lg:px-8">
-          <div className="col-span-6 flex items-center">
-            <div className="flex items-center gap-2">
-              <span className="font-bold tracking-tight">XD.STUDIO</span>
-            </div>
-          </div>
-          <div className="col-span-6 flex justify-end items-center">
-            <div className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} XD.STUDIO. All rights reserved.
-            </div>
-          </div>
-        </footer>
+          </footer>
+        </div>
+        <ContactForm open={open} onOpenChange={setOpen} message={message} />
       </div>
-      <ContactForm open={open} onOpenChange={setOpen} message={message} />
-    </div>
+    </>
   );
 }
