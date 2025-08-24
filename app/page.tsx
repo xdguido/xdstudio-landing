@@ -1,17 +1,18 @@
-"use client";
+'use client';
 
-import { ContactForm } from "@/components/contact-form";
-import LogoParticles from "@/components/logo-particles";
-import { ContactMarquee } from "@/components/message-marquee";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { ArrowRight, CopyrightIcon, PinIcon } from 'lucide-react';
+
+import { ContactForm } from '@/components/contact-form';
+import LogoParticles from '@/components/logo-particles';
+import { ContactMarquee } from '@/components/message-marquee';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Home() {
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   return (
     <>
@@ -21,128 +22,128 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([
             {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "XD.STUDIO",
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'XD.STUDIO',
               description:
-                "Desarrollo de software a medida, aplicaciones web y herramientas internas para empresas locales",
-              url: "https://www.xdstudiogg.com",
-              logo: "https://www.xdstudiogg.com/logo.png",
+                'Desarrollo de software a medida, aplicaciones web y herramientas internas para empresas locales',
+              url: 'https://www.xdstudiogg.com',
+              logo: 'https://www.xdstudiogg.com/logo.png',
               // sameAs: [
               //   'https://linkedin.com/company/xdstudio',
               //   'https://github.com/xdstudio',
               // ],
               contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                availableLanguage: ["Spanish", "English"],
+                '@type': 'ContactPoint',
+                contactType: 'customer service',
+                availableLanguage: ['Spanish', 'English'],
               },
               address: {
-                "@type": "PostalAddress",
-                addressCountry: "AR",
+                '@type': 'PostalAddress',
+                addressCountry: 'AR',
               },
               areaServed: {
-                "@type": "Country",
-                name: "Argentina",
+                '@type': 'Country',
+                name: 'Argentina',
               },
               knowsAbout: [
-                "Desarrollo de Software",
-                "Aplicaciones Web",
-                "Herramientas Internas",
-                "Automatización",
-                "Desarrollo a Medida",
+                'Desarrollo de Software',
+                'Aplicaciones Web',
+                'Herramientas Internas',
+                'Automatización',
+                'Desarrollo a Medida',
               ],
             },
             {
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "XD.STUDIO",
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'XD.STUDIO',
               description:
-                "Especialistas en desarrollo de software a medida y herramientas internas para empresas locales",
-              url: "https://www.xdstudiogg.com",
-              telephone: "+54-299-XXXX-XXXX",
-              email: "contacto@xdstudio.dev",
+                'Especialistas en desarrollo de software a medida y herramientas internas para empresas locales',
+              url: 'https://www.xdstudiogg.com',
+              telephone: '+54-299-XXXX-XXXX',
+              email: 'contacto@xdstudio.dev',
               address: {
-                "@type": "PostalAddress",
-                addressCountry: "AR",
-                addressLocality: "Neuquén Capital",
-                addressRegion: "Neuquén",
+                '@type': 'PostalAddress',
+                addressCountry: 'AR',
+                addressLocality: 'Neuquén Capital',
+                addressRegion: 'Neuquén',
               },
               geo: {
-                "@type": "GeoCoordinates",
+                '@type': 'GeoCoordinates',
                 latitude: -38.9516,
                 longitude: -68.0591,
               },
-              openingHours: "Mo-Fr 09:00-18:00",
-              priceRange: "$$",
+              openingHours: 'Mo-Fr 09:00-18:00',
+              priceRange: '$$',
               aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "5",
-                reviewCount: "1",
+                '@type': 'AggregateRating',
+                ratingValue: '5',
+                reviewCount: '1',
               },
             },
             {
-              "@context": "https://schema.org",
-              "@type": "Service",
-              serviceType: "Desarrollo de Software",
+              '@context': 'https://schema.org',
+              '@type': 'Service',
+              serviceType: 'Desarrollo de Software',
               provider: {
-                "@type": "Organization",
-                name: "XD.STUDIO",
+                '@type': 'Organization',
+                name: 'XD.STUDIO',
               },
               areaServed: [
                 {
-                  "@type": "State",
-                  name: "Neuquén",
+                  '@type': 'State',
+                  name: 'Neuquén',
                 },
                 {
-                  "@type": "Country",
-                  name: "Argentina",
+                  '@type': 'Country',
+                  name: 'Argentina',
                 },
               ],
               hasOfferCatalog: {
-                "@type": "OfferCatalog",
-                name: "Servicios de Desarrollo",
+                '@type': 'OfferCatalog',
+                name: 'Servicios de Desarrollo',
                 itemListElement: [
                   {
-                    "@type": "OfferCatalog",
-                    name: "Desarrollo de Aplicaciones",
+                    '@type': 'OfferCatalog',
+                    name: 'Desarrollo de Aplicaciones',
                     description:
-                      "Soluciones de software a medida para optimizar procesos operativos",
+                      'Soluciones de software a medida para optimizar procesos operativos',
                   },
                   {
-                    "@type": "OfferCatalog",
-                    name: "Desarrollo de Sitios Web",
+                    '@type': 'OfferCatalog',
+                    name: 'Desarrollo de Sitios Web',
                     description:
-                      "Desarrollo de sitios web modernos y responsivos",
+                      'Desarrollo de sitios web modernos y responsivos',
                   },
                   {
-                    "@type": "OfferCatalog",
-                    name: "Automatización",
+                    '@type': 'OfferCatalog',
+                    name: 'Automatización',
                     description:
-                      "Automatización de tareas repetitivas y mejora de atención al cliente",
+                      'Automatización de tareas repetitivas y mejora de atención al cliente',
                   },
                   {
-                    "@type": "OfferCatalog",
-                    name: "Herramientas Personalizadas",
+                    '@type': 'OfferCatalog',
+                    name: 'Herramientas Personalizadas',
                     description:
-                      "Desarrollo de herramientas personalizadas para mejorar productividad",
+                      'Desarrollo de herramientas personalizadas para mejorar productividad',
                   },
                 ],
               },
             },
             {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "XD.STUDIO",
-              url: "https://www.xdstudiogg.com",
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'XD.STUDIO',
+              url: 'https://www.xdstudiogg.com',
               description:
-                "Desarrollo de software a medida y herramientas internas para empresas locales",
-              inLanguage: "es-AR",
+                'Desarrollo de software a medida y herramientas internas para empresas locales',
+              inLanguage: 'es-AR',
               isAccessibleForFree: true,
               potentialAction: {
-                "@type": "SearchAction",
-                target: "https://www.xdstudiogg.com/?q={search_term_string}",
-                "query-input": "required name=search_term_string",
+                '@type': 'SearchAction',
+                target: 'https://www.xdstudiogg.com/?q={search_term_string}',
+                'query-input': 'required name=search_term_string',
               },
             },
           ]),
@@ -159,7 +160,7 @@ export default function Home() {
           >
             <div className="col-span-6 flex items-center">
               <div className="flex items-center gap-2">
-                <h1 className="font-bold tracking-tight flex items-center text-xl">
+                <h1 className="flex items-center">
                   <Image
                     src="/logo.png"
                     alt="XD.STUDIO"
@@ -167,7 +168,9 @@ export default function Home() {
                     height={32}
                     className="h-12 w-12 mr-2"
                   />
-                  STUDIO
+                  <span className="font-bold tracking-tight text-xl">
+                    XD.STUDIO
+                  </span>
                 </h1>
               </div>
             </div>
@@ -184,7 +187,7 @@ export default function Home() {
                   id="hero-heading"
                   className="text-5xl md:text-7xl font-bold tracking-tighter mb-6"
                 >
-                  ¿Qué querés <br />{" "}
+                  ¿Qué querés <br />{' '}
                   <span className="text-primary">construir</span> hoy?
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mb-8">
@@ -193,12 +196,12 @@ export default function Home() {
                 </p>
                 <Button
                   asChild
-                  size={"lg"}
+                  size={'lg'}
                   className="hover:bg-primary/90 transition-colors duration-200 ease-in-out hover:text-primary-foreground text-zinc-950 font-medium rounded-sm bg-zinc-50/80 text-lg"
                   aria-label="Comenzar proyecto de desarrollo de software"
                 >
                   <Link className="flex items-center" href="#contact">
-                    Comenzar{" "}
+                    Comenzar{' '}
                     <ArrowRight className="ml-1 h-5 w-5" aria-hidden="true" />
                   </Link>
                 </Button>
@@ -298,7 +301,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
-                    size={"lg"}
+                    size={'lg'}
                     className="bg-zinc-50/80 transition-colors duration-200 ease-in-out hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 rounded-sm text-lg"
                     onClick={() => setOpen(true)}
                     aria-label="Iniciar conversación sobre tu proyecto"
@@ -307,7 +310,7 @@ export default function Home() {
                   </Button>
                   <Button
                     variant="outline"
-                    size={"lg"}
+                    size={'lg'}
                     className="border-border text-foreground hover:bg-secondary rounded-sm text-lg"
                     onClick={() => setOpen(true)}
                     aria-label="Programar reunión de consulta"
@@ -333,24 +336,33 @@ export default function Home() {
             role="contentinfo"
           >
             <div className="col-span-12 lg:col-span-8">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-2">
+              <div className="flex items-center">
+                <div className="flex items-center mr-4">
+                  <Image
+                    src="/logo.png"
+                    alt="XD.STUDIO"
+                    width={32}
+                    height={32}
+                    className="h-12 w-12 mr-2"
+                  />
                   <span className="font-bold tracking-tight text-xl">
                     XD.STUDIO
                   </span>
-                  <span className="text-muted-foreground text-sm">
-                    Desarrollo de Software a Medida
-                  </span>
                 </div>
-                <div className="text-muted-foreground text-xs">
-                  📍 Neuquén Capital, Argentina
-                </div>
+                <span className="text-muted-foreground text-sm">
+                  Desarrollo de Software a Medida
+                </span>
               </div>
             </div>
-            <div className="col-span-12 lg:col-span-4 flex justify-start lg:justify-end items-end">
-              <div className="text-muted-foreground text-sm">
-                © {new Date().getFullYear()} XD.STUDIO. Todos los derechos
+            <div className="col-span-12 lg:col-span-4 flex flex-col justify-start lg:justify-end items-end">
+              <div className="flex items-center text-muted-foreground text-sm">
+                <CopyrightIcon className="mr-2 h-4 w-4" />
+                {new Date().getFullYear()} XD.STUDIO. Todos los derechos
                 reservados.
+              </div>
+              <div className="flex items-center text-muted-foreground text-sm">
+                <PinIcon className="mr-2 h-4 w-4" />
+                Neuquén Capital, Argentina
               </div>
             </div>
           </footer>
