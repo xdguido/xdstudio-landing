@@ -335,8 +335,8 @@ export default function Home() {
             className="grid grid-cols-12 gap-4 border-t border-border py-12 px-4 sm:px-6 lg:px-8"
             role="contentinfo"
           >
-            <div className="col-span-12 lg:col-span-8">
-              <div className="flex items-center">
+            <div className="col-span-12 lg:col-span-6">
+              <div className="flex flex-wrap items-center">
                 <div className="flex items-center mr-4">
                   <Image
                     src="/logo.png"
@@ -354,13 +354,13 @@ export default function Home() {
                 </span>
               </div>
             </div>
-            <div className="col-span-12 lg:col-span-4 flex flex-col justify-start lg:justify-end items-end">
+            <div className="col-span-12 lg:col-span-6 flex flex-col justify-start mt-4 lg:justify-end lg:items-end">
               <div className="flex items-center text-muted-foreground text-sm">
-                <CopyrightIcon className="mr-2 h-4 w-4" />
+                <CopyrightIcon className="mr-2 shrink-0 h-4 w-4" />
                 {new Date().getFullYear()} XD.STUDIO. Todos los derechos
                 reservados.
               </div>
-              <div className="flex items-center text-muted-foreground text-sm">
+              <div className="flex items-center shrink-0 text-muted-foreground text-sm">
                 <PinIcon className="mr-2 h-4 w-4" />
                 Neuquén Capital, Argentina
               </div>
