@@ -73,6 +73,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.xdstudiogg.com',
   },
+  verification: {
+    google: 'googlee389eb7400ffad61.html',
+  },
   other: {
     'geo.region': 'AR-Q',
     'geo.placename': 'Neuquén Capital',
