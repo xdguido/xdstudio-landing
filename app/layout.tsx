@@ -58,8 +58,7 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     url: 'https://www.xdstudiogg.com',
     siteName: 'XD.STUDIO',
-    title:
-      'XD.STUDIO | Desarrollo de Software y Herramientas Internas en Neuquén',
+    title: 'XD.STUDIO | Desarrollo de Software',
     description:
       'Desarrollamos software a medida, aplicaciones web y herramientas internas para empresas en Neuquén Capital. Automatización y soluciones digitales personalizadas.',
     images: [
