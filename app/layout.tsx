@@ -12,6 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.xdstudiogg.com'),
   title: 'XD.STUDIO | Desarrollo de Software para Empresas',
   description:
     'XD.STUDIO desarrolla software a medida, aplicaciones web, herramientas internas y automatización para empresas en Neuquén Capital. Soluciones personalizadas que optimizan procesos y mejoran la productividad.',
@@ -70,9 +71,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: {
-    canonical: 'https://www.xdstudiogg.com',
-  },
+  alternates: { canonical: '/' },
   verification: {
     google: 'googlee389eb7400ffad61.html',
   },
