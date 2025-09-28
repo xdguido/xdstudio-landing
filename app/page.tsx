@@ -2,12 +2,13 @@
 
 import { ArrowRight, CopyrightIcon, PinIcon } from 'lucide-react';
 
-import { ContactForm } from '@/components/contact-form';
-import LogoParticles from '@/components/logo-particles';
-import { ContactMarquee } from '@/components/message-marquee';
 import { Button } from '@/components/ui/button';
+import { ContactForm } from '@/components/contact-form';
+import { ContactMarquee } from '@/components/message-marquee';
 import Image from 'next/image';
 import Link from 'next/link';
+import LogoParticles from '@/components/logo-particles';
+import { sendGTMEvent } from '@next/third-parties/google';
 import { useState } from 'react';
 
 export default function Home() {
@@ -66,7 +67,17 @@ export default function Home() {
                   className="hover:bg-primary/90 transition-colors duration-200 ease-in-out hover:text-primary-foreground text-zinc-950 font-medium rounded-sm bg-zinc-50/80 text-lg"
                   aria-label="Comenzar proyecto de desarrollo de software"
                 >
-                  <Link className="flex items-center" href="#contact">
+                  <Link
+                    className="flex items-center"
+                    href="#contact"
+                    onClick={() => {
+                      sendGTMEvent({
+                        event: 'contact_cta_click',
+                        location: 'hero',
+                        label: 'Comenzar',
+                      });
+                    }}
+                  >
                     Comenzar{' '}
                     <ArrowRight className="ml-1 h-5 w-5" aria-hidden="true" />
                   </Link>
@@ -169,7 +180,14 @@ export default function Home() {
                   <Button
                     size={'lg'}
                     className="bg-zinc-50/80 transition-colors duration-200 ease-in-out hover:bg-primary/90 hover:text-primary-foreground text-zinc-950 rounded-sm text-lg"
-                    onClick={() => setOpen(true)}
+                    onClick={() => {
+                      sendGTMEvent({
+                        event: 'contact_cta_click',
+                        location: 'contact_section',
+                        label: 'Comenzar',
+                      });
+                      setOpen(true);
+                    }}
                     aria-label="Iniciar conversación sobre tu proyecto"
                   >
                     Comenzar
@@ -178,7 +196,14 @@ export default function Home() {
                     variant="outline"
                     size={'lg'}
                     className="border-border text-foreground hover:bg-secondary rounded-sm text-lg"
-                    onClick={() => setOpen(true)}
+                    onClick={() => {
+                      sendGTMEvent({
+                        event: 'contact_cta_click',
+                        location: 'contact_section',
+                        label: 'Agendar reunión',
+                      });
+                      setOpen(true);
+                    }}
                     aria-label="Programar reunión de consulta"
                   >
                     Agendar reunión
@@ -188,6 +213,7 @@ export default function Home() {
               <div className="w-full mt-12 col-span-12">
                 <ContactMarquee
                   onMessageSelect={(message) => {
+                    sendGTMEvent({ event: 'contact_message_select', message });
                     setMessage(message);
                     setOpen(true);
                   }}

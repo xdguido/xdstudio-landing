@@ -1,9 +1,10 @@
 import '@/app/globals.css';
 
-import { Toaster } from '@/components/ui/sonner';
-import type { Metadata } from 'next';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
 import type React from 'react';
+import { Toaster } from '@/components/ui/sonner';
 
 // Use Inter as a fallback font that's guaranteed to work
 const inter = Inter({
@@ -87,9 +88,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Google Tag Manager container id should be provided via env var to avoid hardcoding
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX';
   return (
     <html lang="es" className="dark">
       <body className={`${inter.className} font-sans`}>
+        {/* Google Tag Manager */}
+        {GTM_ID && GTM_ID !== 'GTM-XXXXXXX' && (
+          <GoogleTagManager gtmId={GTM_ID} />
+        )}
         {children}
         <Toaster />
       </body>
